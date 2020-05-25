@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes');
+const cors = require('cors');
 
 const app = express();
 
@@ -9,6 +10,9 @@ mongoose.connect('mongodb+srv://gabriel:vegeta123@clustermain-8reir.gcp.mongodb.
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+// Comunicação com outros sites
+app.use(cors());
 
 // Aceitar o body como json.
 app.use(express.json()); 
